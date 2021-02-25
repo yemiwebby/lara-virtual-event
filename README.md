@@ -1,62 +1,58 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# How to Build a Virtual Event Site for Laravel/PHP and Vue
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Read the full tutorial here:
 
-## About Laravel
+> > Not yet published
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This application detailed the step by step guide on how to build a live event site similar to Youtube using Laravel, Vue.js and CometChat.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technology
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This demo uses:
 
-## Learning Laravel
+-   [CometChat](https://cometchat.com/)
+-   [Laravel](https://laravel.com/)
+-   [Vuejs](https://vuejs.org/)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Running the demo
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To run the demo follow these steps:
 
-## Laravel Sponsors
+1. Head to the [CometChat dashboard](https://app.cometchat.com/) (you'll need to create a free account if you haven't already)
+2. From the dashboard, create a new app called "lara-event-app" or use any name you prefer
+3. Click **API & Auth Keys** on the left-hand-side and note the automatically-generated REST API Key and the application ID as well
+4. Download the repository [here](https://github.com/yemiwebby/lara-virtual-event/archive/master.zip) or by running `git clone https://github.com/yemiwebby/lara-virtual-event.git`
+5. Run `composer install` to install all the dependencies for the backend (Laravel)
+6. Run `npm install` to install all the dependencies for the frontend (Vuejs)
+7. Create a `.env` file with the root folder of the project, then copy the content `.env.example` and paste it in the newly created file.
+8. Next, locate the following variables within the `.env` file and replace the placeholders with the appropriate credentials:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=YOUR_DB_NAME
+DB_USERNAME=YOUR_DB_USERNAME
+DB_PASSWORD=YOUR_DB_PASSWORD
 
-### Premium Partners
+MIX_COMMETCHAT_API_KEY=YOUR_COMMETCHAT_API_KEY
+MIX_COMMETCHAT_APP_ID=YOUR_COMMETCHAT_APP_ID
+MIX_COMMETCHAT_APP_REGION=YOUR_COMETCHAT_APP_REGION
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+9. Next, run the following command to create tables for your database:
 
-## Contributing
+```bash
+php artisan migrate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+10. Open the project in two separate terminal. From one of the terminals, run `php artisan serve` to start the backend and `npm run watch` from the other to start the frontend application in watch mode.
 
-## Code of Conduct
+11. You can go ahead and register two different users. Once you are done, log in from two different browsers with the credentials of the users created and create an event.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Useful links
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   🏠 [CometChat Homepage](https://www.cometchat.com/pro)
+-   🚀 [Create your free account](https://app.cometchat.com/#/apps)
+-   📚 [Documentation](https://prodocs.cometchat.com/docs)
+-   👾 [GitHub](https://github.com/CometChat-Pro)

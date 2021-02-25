@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b607621d-3fc3-46a0-bd36-a984a3c7fe44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/CometChatMessageActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/CometChatMessageActions.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/resources/add-reaction.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/resources/edit.png" beforeDir="false" />
@@ -23,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -164,7 +167,9 @@
       <option name="presentableId" value="Default" />
       <updated>1613886800068</updated>
       <workItem from="1613886801136" duration="11696000" />
-      <workItem from="1613944983479" duration="506000" />
+      <workItem from="1613944983479" duration="921000" />
+      <workItem from="1614010754610" duration="2829000" />
+      <workItem from="1614086458658" duration="150000" />
     </task>
     <servers />
   </component>
