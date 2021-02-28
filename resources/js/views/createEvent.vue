@@ -47,50 +47,31 @@ export default {
         };
     },
     methods: {
-        async createEvent() {
+        createEvent() {
             if (this.title && this.description && this.youtube_url) {
                 this.showSpinner = true;
                 let guid = Math.random().toString(36).substring(7);
 
-                let url = `https://api-us.cometchat.io/v2.0/groups`;
                 let data = {
                     guid,
-                    name: `${this.title}`,
-                    type: 'public',
-                };
-                try {
-                    const eventDetails = await fetch(url, {
-                        method: 'POST',
-                        headers: new Headers({
-                            appid: process.env.MIX_COMMETCHAT_APP_ID,
-                            apikey: process.env.MIX_COMMETCHAT_REST_API_KEY,
-                            'Content-Type': 'application/json'
-                        }),
-                        body: JSON.stringify(data),
-                    });
-                    const eventJson = await eventDetails.json();
-                    console.log('New Event', eventJson);
-
-                    // send event to the server
-                    this.saveEventToDB(guid,this.title, this.description, this.youtube_url);
-                } catch (error) {
-                    console.log('Error', error);
+                    title: this.title,
+                    description: this.description,
+                    youtube_url: this.youtube_url
                 }
+
+                axios.post(`http://localhost:8000/create`, data)
+                    .then(response => {
+                        console.log("Event created successfully", response.data);
+                        this.redirect();
+                    }).catch(error => {
+                    console.log(error.response.data.message);
+                })
             } else {
                 alert("Please fill all the fields")
             }
         },
         redirect() {
             window.location.href = '/home';
-        },
-        saveEventToDB(guid, title, description, youtube_url) {
-            axios.post(`http://localhost:8000/create`, {guid, title, description, youtube_url})
-                .then(response => {
-                    console.log("Event created successfully", response);
-                    this.redirect();
-                }).catch(error => {
-                console.log(error.response.data.message);
-            })
         }
     }
 };

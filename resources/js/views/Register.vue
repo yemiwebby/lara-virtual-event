@@ -69,11 +69,11 @@ export default {
                     };
                     axios.post(`http://localhost:8000/register`, data)
                         .then(response => {
-                            console.log(response.data.status);
+                            console.log(response.data);
                             if (response.data.status) {
-                                this.createUserOnCometChat(this.name, this.avatar_url);
+                                this.showSpinner = false;
+                                this.redirect();
                             }
-                            this.showSpinner = false;
                         }).catch(error => {
                         console.log(error.response.data.message);
                         this.showSpinner = false;
@@ -84,58 +84,6 @@ export default {
         redirect() {
             window.location.href = '/login';
         },
-        async createUserOnCometChat(name, avatar = "https://picsum.photos/200/300.jpg") {
-            let url = `https://api-us.cometchat.io/v2.0/users`;
-            let data = {
-                uid: name.replace(/\s/g, '').toLowerCase(),
-                name,
-                avatar
-            };
-            try {
-                const userDetails = await fetch(url, {
-                    method: 'POST',
-                    headers: new Headers({
-                        appid: process.env.MIX_COMMETCHAT_APP_ID,
-                        apikey: process.env.MIX_COMMETCHAT_REST_API_KEY,
-                        'Content-Type': 'application/json'
-                    }),
-                    body: JSON.stringify(data),
-                });
-                const userJson = await userDetails.json();
-                console.log('New User', userJson);
-                await this.createAuthTokenAndSaveForUser(data.uid);
-            } catch (error) {
-                console.log('Error', error);
-            }
-        },
-        async createAuthTokenAndSaveForUser(uid) {
-            let url = `https://api-us.cometchat.io/v2.0/users/${uid}/auth_tokens`;
-            try {
-                const tokenDetails = await fetch(url, {
-                    method: 'POST',
-                    headers: new Headers({
-                        appid: process.env.MIX_COMMETCHAT_APP_ID,
-                        apikey: process.env.MIX_COMMETCHAT_REST_API_KEY,
-                        'Content-Type': 'application/json'
-                    }),
-                });
-                const tokenJSON = await tokenDetails.json();
-                console.log(tokenJSON);
-                // await this.addUserToAGroup(uid);
-                this.sendTokenToServer(tokenJSON.data.authToken, this.email);
-            } catch (error) {
-                console.log('Error Token', error);
-            }
-        },
-        sendTokenToServer(token, email) {
-            axios.post(`http://localhost:8000/update/token`, {token, email})
-                .then(response => {
-                    console.log("Token updated successfully", response);
-                    this.redirect();
-                }).catch(error => {
-                console.log(error.response.data.message);
-            })
-        }
     }
 };
 </script>

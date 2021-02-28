@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b607621d-3fc3-46a0-bd36-a984a3c7fe44" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/CometChatMessageActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/CometChatMessageActions.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/resources/add-reaction.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/cometchat-pro-vue-ui-kit/src/components/Messages/CometChatMessageActions/resources/edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/createEvent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/createEvent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +175,11 @@
       <workItem from="1613944983479" duration="921000" />
       <workItem from="1614010754610" duration="2829000" />
       <workItem from="1614086458658" duration="150000" />
+      <workItem from="1614334922656" duration="5347000" />
+      <workItem from="1614345523286" duration="284000" />
+      <workItem from="1614353593832" duration="10000" />
+      <workItem from="1614513644154" duration="4356000" />
+      <workItem from="1614520629154" duration="1996000" />
     </task>
     <servers />
   </component>
@@ -177,6 +187,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2138" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614335290316">
+      <screen x="1440" y="-89" width="1920" height="1080" />
+    </state>
+    <state x="2138" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.-89.1920.1080@1440.-89.1920.1080" timestamp="1614335290316" />
     <state x="2221" y="381" key="NewPhpFileDialog" timestamp="1613915592527">
       <screen x="1440" y="-89" width="1920" height="1080" />
     </state>

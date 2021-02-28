@@ -8,8 +8,8 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -59,7 +59,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'avatar_url' => $data['avatar_url'],
+            'avatar_url' => $data['avatar_url'] ?? "https://picsum.photos/200/300.jpg",
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -67,32 +67,62 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
+        $user  = "";
         event(new Registered($user = $this->create($request->all())));
 
-        if ($request->ajax() || $request->wantsJson()) {
+        $createUser = $this->createUserOnCometChat($user);
+
+        if ($createUser) {
+            $this->updateToken($user->email, json_decode($createUser->body())->data->authToken);
+
             return response()->json([
-                'user' => $this->guard()->user(),
+                'user' => $user,
                 'status' => true
             ]);
+        } else {
+            return response()->json([
+                'status' => false
+            ]);
         }
+    }
 
-        return $request->wantsJson()
-            ? new Response('', 201)
-            : redirect($this->redirectPath());
+    public function createUserOnCometChat($user)
+    {
+        $body = [
+            "uid" => str_replace(' ', '', $user->name),
+            "name" => $user->name,
+            "avatar" => $user->avatar_url
+        ];
+        try {
+
+            Http::withHeaders([
+              'appId' =>  env('MIX_COMMETCHAT_APP_ID'),
+              'apiKey' => env('MIX_COMMETCHAT_REST_API_KEY'),
+              'Content-Type' => 'application/json',
+              'Accept' => 'application/json'
+            ])
+                ->withBody(json_encode($body), 'application/json')
+                ->post('https://api-us.cometchat.io/v2.0/users');
+
+
+
+            return Http::withHeaders([
+                'appId' =>  env('MIX_COMMETCHAT_APP_ID'),
+                'apiKey' => env('MIX_COMMETCHAT_REST_API_KEY'),
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json'
+            ])
+                ->post('https://api-us.cometchat.io/v2.0/users/'.$body['uid'].'/auth_tokens');
+
+        } catch (\Exception $exception) {
+            return $exception->getMessage();
+        }
     }
 
 
-    public function updateToken(Request $request) {
-        $email = $request->get('email');
-        $token = $request->get('token');
-
-        User::where('email', $email)->update([
+    public function updateToken($email, $token) {
+        return User::where('email', $email)->update([
             'token' => $token
-        ]);
-
-        return response()->json([
-            'success' => true
         ]);
     }
 }

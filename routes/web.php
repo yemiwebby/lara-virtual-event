@@ -20,8 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/update/token', [App\Http\Controllers\Auth\RegisterController::class, 'updateToken'])->name('updateToken');
-
 
 Route::middleware(['auth'])->group(function() {
     Route::post('/create', [App\Http\Controllers\EventController::class, 'createEvent'])->name('create-event');
