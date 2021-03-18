@@ -2,7 +2,7 @@
 
 Read the full tutorial here:
 
-> > Not yet published
+[Click Here](https://www.cometchat.com/tutorials/how-to-build-a-virtual-event-site-for-laravel-php-and-vue)
 
 This application detailed the step by step guide on how to build a live event site similar to Youtube using Laravel, Vue.js and CometChat.
 
